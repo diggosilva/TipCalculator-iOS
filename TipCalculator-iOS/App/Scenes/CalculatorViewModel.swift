@@ -16,6 +16,8 @@ enum TipPercentage {
 }
 
 protocol CalculatorViewModelProtocol {
+    var numberOfPeople: Int { get }
+    
     var totalPersonText: String { get }
     var totalBillText: String { get }
     var totalTipText: String { get }
@@ -23,7 +25,8 @@ protocol CalculatorViewModelProtocol {
     
     func setBillAmount(_ amount: Double)
     func setTipPercentage(_ tip: TipPercentage)
-    func setNumberOfPeople(_ count: Int)
+    func decreasePeople()
+    func increasePeople()
     func clear()
 }
 
@@ -32,12 +35,12 @@ class CalculatorViewModel: CalculatorViewModelProtocol {
     // MARK: State (inputs)
     private var billAmount: Double = 0
     private var tipPercentage: TipPercentage = .zeroPercent
-    private var numberOfPeople: Int = 1
+    private(set) var numberOfPeople: Int = 1
     
     // MARK: Outputs (read-only)
-    private(set) var totalPersonText: String = "R$0,00"
-    private(set) var totalBillText: String = "R$0,00"
-    private(set) var totalTipText: String = "R$0,00"
+    private(set) var totalPersonText: String = "R$ 0,00"
+    private(set) var totalBillText: String = "R$ 0,00"
+    private(set) var totalTipText: String = "R$ 0,00"
     
     private(set) var billAmountIsValid: Bool = false
     
@@ -57,8 +60,13 @@ class CalculatorViewModel: CalculatorViewModelProtocol {
         recalculate()
     }
     
-    func setNumberOfPeople(_ count: Int) {
-        numberOfPeople = count
+    func decreasePeople() {
+        numberOfPeople = max(1, numberOfPeople - 1)
+        recalculate()
+    }
+    
+    func increasePeople() {
+        numberOfPeople += 1
         recalculate()
     }
     
@@ -67,9 +75,9 @@ class CalculatorViewModel: CalculatorViewModelProtocol {
         tipPercentage = .zeroPercent
         numberOfPeople = 1
         
-        totalPersonText = "R$0,00"
-        totalBillText = "R$0,00"
-        totalTipText = "R$0,00"
+        totalPersonText = "R$ 0,00"
+        totalBillText = "R$ 0,00"
+        totalTipText = "R$ 0,00"
     }
     
     private func recalculate() {
