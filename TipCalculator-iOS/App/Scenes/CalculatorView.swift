@@ -8,7 +8,6 @@
 import UIKit
 
 protocol CalculatorViewDelegate: AnyObject {
-    func textFieldDidChange()
     func tapped10Percent()
     func tapped15Percent()
     func tapped20Percent()
@@ -98,6 +97,7 @@ final class CalculatorView: UIView {
         label.font = .systemFont(ofSize: 24, weight: .bold)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.6
+        label.textAlignment = .right
         return label
     }()
     
@@ -106,12 +106,11 @@ final class CalculatorView: UIView {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Valor da conta"
+        textField.text = "R$ 0,00"
         textField.keyboardType = .decimalPad
         textField.borderStyle = .roundedRect
-        textField.clearButtonMode = .whileEditing
         textField.font = .systemFont(ofSize: 24)
         textField.backgroundColor = .tertiarySystemBackground
-        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         return textField
     }()
     
@@ -159,7 +158,7 @@ final class CalculatorView: UIView {
         setupHierarchy()
         setupConstraints()
         setupConfigurations()
-//        setButtonsEnabled(false)
+        setButtonsEnabled(false)
     }
     
     private func setupHierarchy() {
@@ -202,12 +201,15 @@ final class CalculatorView: UIView {
             
             totalBillValueLabel.topAnchor.constraint(equalTo: totalBillTitleLabel.bottomAnchor, constant: 10),
             totalBillValueLabel.leadingAnchor.constraint(equalTo: totalBillTitleLabel.leadingAnchor),
+            totalBillValueLabel.trailingAnchor.constraint(equalTo: tipAmountValueLabel.leadingAnchor, constant: -10),
+            totalBillValueLabel.widthAnchor.constraint(lessThanOrEqualTo: cardView.widthAnchor, multiplier: 0.45),
             
             tipAmountTitleLabel.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 5),
             tipAmountTitleLabel.trailingAnchor.constraint(equalTo: totalPerPersonTitleLabel.trailingAnchor),
             
             tipAmountValueLabel.topAnchor.constraint(equalTo: tipAmountTitleLabel.bottomAnchor, constant: 10),
             tipAmountValueLabel.trailingAnchor.constraint(equalTo: tipAmountTitleLabel.trailingAnchor),
+            tipAmountValueLabel.widthAnchor.constraint(lessThanOrEqualTo: cardView.widthAnchor, multiplier: 0.45),
         ])
         
         // Inputs
@@ -279,10 +281,6 @@ final class CalculatorView: UIView {
 
 //MARK: Helpers
 extension CalculatorView {
-    @objc func textFieldDidChange() {
-        delegate?.textFieldDidChange()
-    }
-    
     @objc func tapped10Percent() {
         delegate?.tapped10Percent()
     }
@@ -305,5 +303,16 @@ extension CalculatorView {
     
     @objc func tappedIncrease() {
         delegate?.tappedIncrease()
+    }
+    
+    func updateTotalsLabels(totalPersonText: String, totalBillText: String, totalTipText: String, totalPeople: Int) {
+        totalPerPersonValueLabel.text = totalPersonText
+        totalBillValueLabel.text = totalBillText
+        tipAmountValueLabel.text = totalTipText
+        peopleCountValueLabel.text = "\(totalPeople)"
+    }
+    
+    func updatePeopleCount(_ count: Int) {
+        peopleCountValueLabel.text = "\(count)"
     }
 }
