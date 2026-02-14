@@ -59,13 +59,13 @@ extension CalculatorViewController: UITextFieldDelegate {
               let stringRange = Range(range, in: currentText) else {
             return false
         }
-
+        
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         let numbers = updatedText.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
         let doubleValue = (Double(numbers) ?? 0) / 100.0
-
+        
         textField.text = NumberFormatter.currency.string(from: NSNumber(value: doubleValue))
-
+        
         viewModel.setBillAmount(doubleValue)
         contentView.setButtonsEnabled(viewModel.billAmountIsValid)
         setupUI()
@@ -73,7 +73,7 @@ extension CalculatorViewController: UITextFieldDelegate {
     }
 }
 
-extension CalculatorViewController: CalculatorViewDelegate {    
+extension CalculatorViewController: CalculatorViewDelegate {
     @objc func tapped10Percent() {
         viewModel.setTipPercentage(.tenPercent)
         setupUI()
@@ -94,7 +94,7 @@ extension CalculatorViewController: CalculatorViewDelegate {
     }
     
     @objc func tappedDecrease() {
-        viewModel.decreasePeople()        
+        viewModel.decreasePeople()
         setupUI()
     }
     
@@ -126,15 +126,4 @@ extension CalculatorViewController: CalculatorViewDelegate {
         
         present(alert, animated: true)
     }
-}
-
-extension NumberFormatter {
-    static let currency: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.locale = Locale.current
-        formatter.maximumFractionDigits = 2
-        formatter.minimumFractionDigits = 2
-        return formatter
-    }()
 }
