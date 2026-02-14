@@ -30,3 +30,53 @@ func applyShadow(view: UIView) {
     view.layer.shadowOpacity = 0.25
     view.layer.shadowRadius = 5.0
 }
+
+func buildCardView() -> UIView {
+    let view = UIView()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.layer.cornerRadius = 16
+    view.backgroundColor = .tertiarySystemBackground
+    return view
+}
+
+func buildTitleLabel(text: String, textColor: UIColor = .label, textAlignment: NSTextAlignment = .left) -> UILabel {
+    let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.text = text
+    label.font = .systemFont(ofSize: 14)
+    label.textColor = textColor
+    label.textAlignment = textAlignment
+    return label
+}
+
+func buildValueLabel(text: String, textColor: UIColor = .label, textAlignment: NSTextAlignment = .left, font: UIFont? = nil, backgroundColor: UIColor? = .clear) -> UILabel {
+    let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.text = text
+    label.font = font
+    label.textColor = textColor
+    label.textAlignment = textAlignment
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.6
+    label.backgroundColor = backgroundColor
+    return label
+}
+
+func buildSeparator() -> UIView {
+    let view = UIView()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.backgroundColor = .separator
+    return view
+}
+
+func buildTextField() -> UITextField {
+    let textField = UITextField()
+    textField.translatesAutoresizingMaskIntoConstraints = false
+    textField.placeholder = "Valor da conta"
+    textField.text = "R$ 0,00"
+    textField.keyboardType = .decimalPad
+    textField.borderStyle = .roundedRect
+    textField.font = .systemFont(ofSize: 24)
+    textField.backgroundColor = .tertiarySystemBackground
+    return textField
+}
