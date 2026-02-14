@@ -20,99 +20,23 @@ final class CalculatorView: UIView {
     
     weak var delegate: CalculatorViewDelegate?
     
-    lazy var cardView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 16
-        view.backgroundColor = .tertiarySystemBackground
-        return view
-    }()
+    lazy var cardView = buildCardView()
     
     // MARK: - Total per person
-    lazy var totalPerPersonTitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Por pessoa"
-        label.font = .systemFont(ofSize: 14)
-        label.textColor = .label
-        label.textAlignment = .center
-        return label
-    }()
-    
-    lazy var totalPerPersonValueLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "R$ 0,00"
-        label.font = .systemFont(ofSize: 40, weight: .bold)
-        label.textColor = .label
-        label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.6
-        return label
-    }()
-    
-    lazy var separator: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .separator
-        return view
-    }()
+    lazy var totalPerPersonTitleLabel = buildTitleLabel(text: "Por pessoa", textAlignment: .center)
+    lazy var totalPerPersonValueLabel = buildValueLabel(text: "R$ 0,00", textColor: .label, textAlignment: .center, font: .systemFont(ofSize: 40, weight: .bold))
+    lazy var separator = buildSeparator()
     
     // MARK: - Total bill
-    lazy var totalBillTitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Total da conta"
-        label.font = .systemFont(ofSize: 14)
-        label.textColor = .secondaryLabel
-        label.textAlignment = .left
-        return label
-    }()
-    
-    lazy var totalBillValueLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "R$ 0,00"
-        label.font = .systemFont(ofSize: 24, weight: .bold)
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.6
-        return label
-    }()
+    lazy var totalBillTitleLabel = buildTitleLabel(text: "Total da conta", textColor: .secondaryLabel)
+    lazy var totalBillValueLabel = buildValueLabel(text: "R$ 0,00", font: .systemFont(ofSize: 24, weight: .bold))
     
     // MARK: - Tip
-    lazy var tipAmountTitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Gorjeta"
-        label.font = .systemFont(ofSize: 14)
-        label.textColor = .secondaryLabel
-        label.textAlignment = .right
-        return label
-    }()
-    
-    lazy var tipAmountValueLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "R$ 0,00"
-        label.font = .systemFont(ofSize: 24, weight: .bold)
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.6
-        label.textAlignment = .right
-        return label
-    }()
+    lazy var tipAmountTitleLabel = buildTitleLabel(text: "Gorjeta", textColor: .secondaryLabel, textAlignment: .right)
+    lazy var tipAmountValueLabel = buildValueLabel(text: "R$ 0,00", textAlignment: .right, font: .systemFont(ofSize: 24, weight: .bold))
     
     // MARK: - Bill amount input
-    lazy var billAmountTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Valor da conta"
-        textField.text = "R$ 0,00"
-        textField.keyboardType = .decimalPad
-        textField.borderStyle = .roundedRect
-        textField.font = .systemFont(ofSize: 24)
-        textField.backgroundColor = .tertiarySystemBackground
-        return textField
-    }()
+    lazy var billAmountTextField = buildTextField()
     
     // MARK: - Tip buttons
     lazy var tip10PercentButton = buildButton(title: "10%", target: self, action: #selector(tapped10Percent))
@@ -123,29 +47,10 @@ final class CalculatorView: UIView {
     lazy var customTipButton = buildButton(title: "Gorjeta personalizada", target: self, action: #selector(tappedCustomTip))
     
     // MARK: - People count
-    lazy var peopleCountTitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Número de pessoas"
-        label.textColor = .secondaryLabel
-        label.textAlignment = .right
-        label.font = .systemFont(ofSize: 14)
-        return label
-    }()
-    
+    lazy var peopleCountTitleLabel = buildTitleLabel(text: "Número de pessoas", textColor: .secondaryLabel, textAlignment: .right)
     lazy var decreasePeopleButton = buildButton(title: "-", target: self, action: #selector(tappedDecrease))
     lazy var increasePeopleButton = buildButton(title: "+", target: self, action: #selector(tappedIncrease))
-    
-    lazy var peopleCountValueLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "1"
-        label.textColor = .label
-        label.font = .boldSystemFont(ofSize: 24)
-        label.textAlignment = .center
-        label.backgroundColor = .tertiarySystemBackground
-        return label
-    }()
+    lazy var peopleCountValueLabel = buildValueLabel(text: "1", textAlignment: .center, font: .boldSystemFont(ofSize: 24), backgroundColor: .tertiarySystemBackground)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -281,29 +186,12 @@ final class CalculatorView: UIView {
 
 //MARK: Helpers
 extension CalculatorView {
-    @objc func tapped10Percent() {
-        delegate?.tapped10Percent()
-    }
-    
-    @objc func tapped15Percent() {
-        delegate?.tapped15Percent()
-    }
-    
-    @objc func tapped20Percent() {
-        delegate?.tapped20Percent()
-    }
-    
-    @objc func tappedCustomTip() {
-        delegate?.tappedCustomTip()
-    }
-    
-    @objc func tappedDecrease() {
-        delegate?.tappedDecrease()
-    }
-    
-    @objc func tappedIncrease() {
-        delegate?.tappedIncrease()
-    }
+    @objc func tapped10Percent() { delegate?.tapped10Percent() }
+    @objc func tapped15Percent() { delegate?.tapped15Percent() }
+    @objc func tapped20Percent() { delegate?.tapped20Percent() }
+    @objc func tappedCustomTip() { delegate?.tappedCustomTip() }
+    @objc func tappedDecrease() { delegate?.tappedDecrease() }
+    @objc func tappedIncrease() { delegate?.tappedIncrease() }
     
     func updateTotalsLabels(totalPersonText: String, totalBillText: String, totalTipText: String, totalPeople: Int) {
         totalPerPersonValueLabel.text = totalPersonText
