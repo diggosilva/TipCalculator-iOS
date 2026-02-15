@@ -38,9 +38,9 @@ class CalculatorViewModel: CalculatorViewModelProtocol {
     private(set) var numberOfPeople: Int = 1
     
     // MARK: Outputs (read-only)
-    private(set) var totalPersonText: String = "R$ 0,00"
-    private(set) var totalBillText: String = "R$ 0,00"
-    private(set) var totalTipText: String = "R$ 0,00"
+    private(set) var totalPersonText: String = .defaultCurrencyValue
+    private(set) var totalBillText: String = .defaultCurrencyValue
+    private(set) var totalTipText: String = .defaultCurrencyValue
     
     private(set) var billAmountIsValid: Bool = false
     
@@ -75,9 +75,9 @@ class CalculatorViewModel: CalculatorViewModelProtocol {
         tipPercentage = .zeroPercent
         numberOfPeople = 1
         
-        totalPersonText = "R$ 0,00"
-        totalBillText = "R$ 0,00"
-        totalTipText = "R$ 0,00"
+        totalPersonText = .defaultCurrencyValue
+        totalBillText = .defaultCurrencyValue
+        totalTipText = .defaultCurrencyValue
     }
     
     private func recalculate() {
@@ -111,6 +111,6 @@ class CalculatorViewModel: CalculatorViewModelProtocol {
         formatter.numberStyle = .currency
         formatter.locale = Locale.current
         formatter.usesGroupingSeparator = true
-        return formatter.string(from: NSNumber(value: value)) ?? "R$0,00"
+        return formatter.string(from: NSNumber(value: value)) ?? .defaultCurrencyValue
     }
 }

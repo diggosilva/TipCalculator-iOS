@@ -73,7 +73,7 @@ func buildTextField() -> UITextField {
     let textField = UITextField()
     textField.translatesAutoresizingMaskIntoConstraints = false
     textField.placeholder = "Valor da conta"
-    textField.text = "R$ 0,00"
+    textField.text = .defaultCurrencyValue
     textField.keyboardType = .decimalPad
     textField.borderStyle = .roundedRect
     textField.font = .systemFont(ofSize: 24)
