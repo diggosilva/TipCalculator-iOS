@@ -24,16 +24,16 @@ final class CalculatorView: UIView {
     
     // MARK: - Total per person
     lazy var totalPerPersonTitleLabel = buildTitleLabel(text: "Por pessoa", textAlignment: .center)
-    lazy var totalPerPersonValueLabel = buildValueLabel(text: "R$ 0,00", textColor: .label, textAlignment: .center, font: .systemFont(ofSize: 40, weight: .bold))
+    lazy var totalPerPersonValueLabel = buildValueLabel(text: .defaultCurrencyValue, textColor: .label, textAlignment: .center, font: .systemFont(ofSize: 40, weight: .bold))
     lazy var separator = buildSeparator()
     
     // MARK: - Total bill
     lazy var totalBillTitleLabel = buildTitleLabel(text: "Total da conta", textColor: .secondaryLabel)
-    lazy var totalBillValueLabel = buildValueLabel(text: "R$ 0,00", font: .systemFont(ofSize: 24, weight: .bold))
+    lazy var totalBillValueLabel = buildValueLabel(text: .defaultCurrencyValue, font: .systemFont(ofSize: 24, weight: .bold))
     
     // MARK: - Tip
     lazy var tipAmountTitleLabel = buildTitleLabel(text: "Gorjeta", textColor: .secondaryLabel, textAlignment: .right)
-    lazy var tipAmountValueLabel = buildValueLabel(text: "R$ 0,00", textAlignment: .right, font: .systemFont(ofSize: 24, weight: .bold))
+    lazy var tipAmountValueLabel = buildValueLabel(text: .defaultCurrencyValue, textAlignment: .right, font: .systemFont(ofSize: 24, weight: .bold))
     
     // MARK: - Bill amount input
     lazy var billAmountTextField = buildTextField()
@@ -175,7 +175,6 @@ final class CalculatorView: UIView {
             [tip10PercentButton, tip15PercentButton, tip20PercentButton, customTipButton, decreasePeopleButton, increasePeopleButton].forEach { $0.isEnabled = false }
             [tip10PercentButton, tip15PercentButton, tip20PercentButton, customTipButton, decreasePeopleButton, increasePeopleButton].forEach { $0.alpha = 0.5 }
             [tip10PercentButton, tip15PercentButton, tip20PercentButton, customTipButton, decreasePeopleButton, increasePeopleButton].forEach { $0.backgroundColor = .lightGray }
-            peopleCountValueLabel.text = "1"
         } else {
             [tip10PercentButton, tip15PercentButton, tip20PercentButton, customTipButton, decreasePeopleButton, increasePeopleButton].forEach { $0.isEnabled = true }
             [tip10PercentButton, tip15PercentButton, tip20PercentButton, customTipButton, decreasePeopleButton, increasePeopleButton].forEach { $0.alpha = 1 }
@@ -202,5 +201,9 @@ extension CalculatorView {
     
     func updatePeopleCount(_ count: Int) {
         peopleCountValueLabel.text = "\(count)"
+    }
+    
+    func clearBillAmountTextField() {
+        billAmountTextField.text = .defaultCurrencyValue
     }
 }
