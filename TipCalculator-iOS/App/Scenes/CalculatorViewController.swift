@@ -36,6 +36,7 @@ class CalculatorViewController: UIViewController {
     
     private func setupNavigationBar() {
         navigationItem.title = "Calculadora de Gorjetas"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "eraser.fill"), style: .plain, target: self, action: #selector(tappedClearUI))
     }
     
     private func setupDelegates() {
@@ -49,6 +50,13 @@ class CalculatorViewController: UIViewController {
             totalTipText: viewModel.totalTipText,
             totalPeople: viewModel.numberOfPeople
         )
+    }
+    
+    @objc private func tappedClearUI() {
+        viewModel.clear()
+        contentView.clearBillAmountTextField()
+        setupUI()
+        view.endEditing(true)
     }
 }
 
