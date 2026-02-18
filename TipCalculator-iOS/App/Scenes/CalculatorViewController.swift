@@ -55,6 +55,7 @@ class CalculatorViewController: UIViewController {
     @objc private func tappedClearUI() {
         viewModel.clear()
         contentView.clearBillAmountTextField()
+        contentView.setButtonsEnabled(false)
         setupUI()
         view.endEditing(true)
     }
