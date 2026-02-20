@@ -72,8 +72,7 @@ func buildSeparator() -> UIView {
 func buildTextField() -> UITextField {
     let textField = UITextField()
     textField.translatesAutoresizingMaskIntoConstraints = false
-    textField.placeholder = "Valor da conta"
-    textField.text = .defaultCurrencyValue
+    textField.text = CurrencyFormatter.zero
     textField.keyboardType = .decimalPad
     textField.borderStyle = .roundedRect
     textField.font = .systemFont(ofSize: 24)
