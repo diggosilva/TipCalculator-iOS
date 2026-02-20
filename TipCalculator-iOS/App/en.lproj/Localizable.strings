@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  TipCalculator-iOS
+
+  Created by Diggo Silva on 19/02/26.
+  
+*/
+
+"title" = "Tip Calculator";
+"per_person_label" = "Per person";
+"total_bill_label" = "Total bill";
+"tip_label" = "Tip";
+"custom_tip_label" = "Custom tip";
+"number_of_people_label" = "Number of people";
+"alert_title_label" = "Custom tip";
+"alert_message_label" = "Be kind and set your own tip. EX: 25.00";
+"cancel_button_title" = "Cancel";
+"placeholder" = "Ex: 25.00";

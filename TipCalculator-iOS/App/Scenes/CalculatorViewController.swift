@@ -35,7 +35,7 @@ class CalculatorViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        navigationItem.title = "Calculadora de Gorjetas"
+        navigationItem.title = "title".localized
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "eraser.fill"), style: .plain, target: self, action: #selector(tappedClearUI))
     }
     
@@ -113,10 +113,10 @@ extension CalculatorViewController: CalculatorViewDelegate {
     }
     
     private func showAlertCustomTip() {
-        let alert = UIAlertController(title: "Gorjeta customizada", message: "Seja gentil e defina sua própria gorjeta. EX: 25,00", preferredStyle: .alert)
+        let alert = UIAlertController(title: "alert_title_label".localized, message: "alert_message_label".localized, preferredStyle: .alert)
         
         alert.addTextField { (textField) in
-            textField.placeholder = "Ex: 25,00"
+            textField.placeholder = "placeholder".localized
             textField.keyboardType = .decimalPad
         }
         
@@ -131,7 +131,7 @@ extension CalculatorViewController: CalculatorViewDelegate {
         }
         
         alert.addAction(confirmationAction)
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "cancel_button_title".localized, style: .cancel, handler: nil))
         
         present(alert, animated: true)
     }

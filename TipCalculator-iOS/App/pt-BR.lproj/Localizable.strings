@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  TipCalculator-iOS
+
+  Created by Diggo Silva on 19/02/26.
+  
+*/
+
+"title" = "Calculadora de Gorjetas";
+"per_person_label" = "Por pessoa";
+"total_bill_label" = "Total da conta";
+"tip_label" = "Gorjeta";
+"custom_tip_label" = "Gorjeta personalizada";
+"number_of_people_label" = "Número de pessoas";
+"alert_title_label" = "Gorjeta personalizada";
+"alert_message_label" = "Seja gentil e defina sua própria gorjeta. EX: 25,00";
+"cancel_button_title" = "Cancelar";
+"placeholder" = "Ex: 25,00";

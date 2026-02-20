@@ -38,9 +38,9 @@ class CalculatorViewModel: CalculatorViewModelProtocol {
     private(set) var numberOfPeople: Int = 1
     
     // MARK: Outputs (read-only)
-    private(set) var totalPersonText: String = .defaultCurrencyValue
-    private(set) var totalBillText: String = .defaultCurrencyValue
-    private(set) var totalTipText: String = .defaultCurrencyValue
+    private(set) var totalPersonText: String = CurrencyFormatter.zero
+    private(set) var totalBillText: String = CurrencyFormatter.zero
+    private(set) var totalTipText: String = CurrencyFormatter.zero
     
     private(set) var billAmountIsValid: Bool = false
     
@@ -75,9 +75,9 @@ class CalculatorViewModel: CalculatorViewModelProtocol {
         tipPercentage = .zeroPercent
         numberOfPeople = 1
         
-        totalPersonText = .defaultCurrencyValue
-        totalBillText = .defaultCurrencyValue
-        totalTipText = .defaultCurrencyValue
+        totalPersonText = CurrencyFormatter.zero
+        totalBillText = CurrencyFormatter.zero
+        totalTipText = CurrencyFormatter.zero
     }
     
     private func recalculate() {
@@ -101,16 +101,8 @@ class CalculatorViewModel: CalculatorViewModelProtocol {
         totalBill = billAmount + tipValue
         totalPerPerson = totalBill / Double(numberOfPeople)
         
-        totalPersonText = formatCurrency(totalPerPerson)
-        totalBillText = formatCurrency(totalBill)
-        totalTipText = formatCurrency(tipValue)
-    }
-    
-    private func formatCurrency(_ value: Double) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.locale = Locale.current
-        formatter.usesGroupingSeparator = true
-        return formatter.string(from: NSNumber(value: value)) ?? .defaultCurrencyValue
+        totalPersonText = CurrencyFormatter.string(from: totalPerPerson)
+        totalBillText = CurrencyFormatter.string(from: totalBill)
+        totalTipText = CurrencyFormatter.string(from: tipValue)
     }
 }

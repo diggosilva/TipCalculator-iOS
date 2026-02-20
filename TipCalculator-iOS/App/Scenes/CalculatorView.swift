@@ -23,17 +23,17 @@ final class CalculatorView: UIView {
     lazy var cardView = buildCardView()
     
     // MARK: - Total per person
-    lazy var totalPerPersonTitleLabel = buildTitleLabel(text: "Por pessoa", textAlignment: .center)
-    lazy var totalPerPersonValueLabel = buildValueLabel(text: .defaultCurrencyValue, textColor: .label, textAlignment: .center, font: .systemFont(ofSize: 40, weight: .bold))
+    lazy var totalPerPersonTitleLabel = buildTitleLabel(text: "per_person_label".localized, textAlignment: .center)
+    lazy var totalPerPersonValueLabel = buildValueLabel(text: CurrencyFormatter.zero, textColor: .label, textAlignment: .center, font: .systemFont(ofSize: 40, weight: .bold))
     lazy var separator = buildSeparator()
     
     // MARK: - Total bill
-    lazy var totalBillTitleLabel = buildTitleLabel(text: "Total da conta", textColor: .secondaryLabel)
-    lazy var totalBillValueLabel = buildValueLabel(text: .defaultCurrencyValue, font: .systemFont(ofSize: 24, weight: .bold))
+    lazy var totalBillTitleLabel = buildTitleLabel(text: "total_bill_label".localized, textColor: .secondaryLabel)
+    lazy var totalBillValueLabel = buildValueLabel(text: CurrencyFormatter.zero, font: .systemFont(ofSize: 24, weight: .bold))
     
     // MARK: - Tip
-    lazy var tipAmountTitleLabel = buildTitleLabel(text: "Gorjeta", textColor: .secondaryLabel, textAlignment: .right)
-    lazy var tipAmountValueLabel = buildValueLabel(text: .defaultCurrencyValue, textAlignment: .right, font: .systemFont(ofSize: 24, weight: .bold))
+    lazy var tipAmountTitleLabel = buildTitleLabel(text: "tip_label".localized, textColor: .secondaryLabel, textAlignment: .right)
+    lazy var tipAmountValueLabel = buildValueLabel(text: CurrencyFormatter.zero, textAlignment: .right, font: .systemFont(ofSize: 24, weight: .bold))
     
     // MARK: - Bill amount input
     lazy var billAmountTextField = buildTextField()
@@ -44,10 +44,10 @@ final class CalculatorView: UIView {
     lazy var tip20PercentButton = buildButton(title: "20%", target: self, action: #selector(tapped20Percent))
     
     // MARK: - Custom tip
-    lazy var customTipButton = buildButton(title: "Gorjeta personalizada", target: self, action: #selector(tappedCustomTip))
+    lazy var customTipButton = buildButton(title: "custom_tip_label".localized, target: self, action: #selector(tappedCustomTip))
     
     // MARK: - People count
-    lazy var peopleCountTitleLabel = buildTitleLabel(text: "Número de pessoas", textColor: .secondaryLabel, textAlignment: .right)
+    lazy var peopleCountTitleLabel = buildTitleLabel(text: "number_of_people_label".localized, textColor: .secondaryLabel, textAlignment: .right)
     lazy var decreasePeopleButton = buildButton(title: "-", target: self, action: #selector(tappedDecrease))
     lazy var increasePeopleButton = buildButton(title: "+", target: self, action: #selector(tappedIncrease))
     lazy var peopleCountValueLabel = buildValueLabel(text: "1", textAlignment: .center, font: .boldSystemFont(ofSize: 24), backgroundColor: .tertiarySystemBackground)
@@ -204,6 +204,6 @@ extension CalculatorView {
     }
     
     func clearBillAmountTextField() {
-        billAmountTextField.text = .defaultCurrencyValue
+        billAmountTextField.text = CurrencyFormatter.zero
     }
 }
