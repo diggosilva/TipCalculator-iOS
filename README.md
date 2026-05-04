@@ -1,4 +1,4 @@
-# TVShows
+# TipCalculator-iOS
 
 <p align="center">
     <img src="https://img.shields.io/badge/Swift-5.9.1-orange.svg" />
