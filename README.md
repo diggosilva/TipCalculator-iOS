@@ -30,6 +30,7 @@ Study iOS app: UI recreated with differences based on a SwiftUI class reference.
 - Custom elements
 - Dark Mode
 - Unit tests
+- UI tests
 
 ## Requirements
 
