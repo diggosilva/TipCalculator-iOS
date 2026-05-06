@@ -14,10 +14,18 @@
 			remoteGlobalIDString = 92DF83912F3B826300B0B4D4;
 			remoteInfo = "TipCalculator-iOS";
 		};
+		92CB5D4A2FAB62FF006E6B9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92DF838A2F3B826300B0B4D4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92DF83912F3B826300B0B4D4;
+			remoteInfo = "TipCalculator-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		92AB4FF22F43822600804651 /* TipCalculator-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TipCalculator-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92CB5D442FAB62FF006E6B9C /* TipCalculator-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TipCalculator-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DF83922F3B826300B0B4D4 /* TipCalculator-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TipCalculator-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -37,6 +45,11 @@
 			path = "TipCalculator-iOSTests";
 			sourceTree = "<group>";
 		};
+		92CB5D452FAB62FF006E6B9C /* TipCalculator-iOSUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "TipCalculator-iOSUITests";
+			sourceTree = "<group>";
+		};
 		92DF83942F3B826300B0B4D4 /* TipCalculator-iOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -49,6 +62,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		92AB4FEF2F43822600804651 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92CB5D412FAB62FF006E6B9C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -70,6 +90,7 @@
 			children = (
 				92DF83942F3B826300B0B4D4 /* TipCalculator-iOS */,
 				92AB4FF32F43822600804651 /* TipCalculator-iOSTests */,
+				92CB5D452FAB62FF006E6B9C /* TipCalculator-iOSUITests */,
 				92DF83932F3B826300B0B4D4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,6 +100,7 @@
 			children = (
 				92DF83922F3B826300B0B4D4 /* TipCalculator-iOS.app */,
 				92AB4FF22F43822600804651 /* TipCalculator-iOSTests.xctest */,
+				92CB5D442FAB62FF006E6B9C /* TipCalculator-iOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,6 +130,29 @@
 			productName = "TipCalculator-iOSTests";
 			productReference = 92AB4FF22F43822600804651 /* TipCalculator-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		92CB5D432FAB62FF006E6B9C /* TipCalculator-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92CB5D4E2FAB62FF006E6B9C /* Build configuration list for PBXNativeTarget "TipCalculator-iOSUITests" */;
+			buildPhases = (
+				92CB5D402FAB62FF006E6B9C /* Sources */,
+				92CB5D412FAB62FF006E6B9C /* Frameworks */,
+				92CB5D422FAB62FF006E6B9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92CB5D4B2FAB62FF006E6B9C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				92CB5D452FAB62FF006E6B9C /* TipCalculator-iOSUITests */,
+			);
+			name = "TipCalculator-iOSUITests";
+			packageProductDependencies = (
+			);
+			productName = "TipCalculator-iOSUITests";
+			productReference = 92CB5D442FAB62FF006E6B9C /* TipCalculator-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		92DF83912F3B826300B0B4D4 /* TipCalculator-iOS */ = {
 			isa = PBXNativeTarget;
@@ -145,6 +190,10 @@
 						CreatedOnToolsVersion = 26.0.1;
 						TestTargetID = 92DF83912F3B826300B0B4D4;
 					};
+					92CB5D432FAB62FF006E6B9C = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = 92DF83912F3B826300B0B4D4;
+					};
 					92DF83912F3B826300B0B4D4 = {
 						CreatedOnToolsVersion = 26.0.1;
 					};
@@ -167,12 +216,20 @@
 			targets = (
 				92DF83912F3B826300B0B4D4 /* TipCalculator-iOS */,
 				92AB4FF12F43822600804651 /* TipCalculator-iOSTests */,
+				92CB5D432FAB62FF006E6B9C /* TipCalculator-iOSUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		92AB4FF02F43822600804651 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92CB5D422FAB62FF006E6B9C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -196,6 +253,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		92CB5D402FAB62FF006E6B9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92DF838E2F3B826300B0B4D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -210,6 +274,11 @@
 			isa = PBXTargetDependency;
 			target = 92DF83912F3B826300B0B4D4 /* TipCalculator-iOS */;
 			targetProxy = 92AB4FF62F43822600804651 /* PBXContainerItemProxy */;
+		};
+		92CB5D4B2FAB62FF006E6B9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92DF83912F3B826300B0B4D4 /* TipCalculator-iOS */;
+			targetProxy = 92CB5D4A2FAB62FF006E6B9C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -253,6 +322,46 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TipCalculator-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TipCalculator-iOS";
+			};
+			name = Release;
+		};
+		92CB5D4C2FAB62FF006E6B9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 57HYQW6DAG;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.diggosilva.TipCalculator-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "TipCalculator-iOS";
+			};
+			name = Debug;
+		};
+		92CB5D4D2FAB62FF006E6B9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 57HYQW6DAG;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.diggosilva.TipCalculator-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "TipCalculator-iOS";
 			};
 			name = Release;
 		};
@@ -447,6 +556,15 @@
 			buildConfigurations = (
 				92AB4FF82F43822600804651 /* Debug */,
 				92AB4FF92F43822600804651 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92CB5D4E2FAB62FF006E6B9C /* Build configuration list for PBXNativeTarget "TipCalculator-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92CB5D4C2FAB62FF006E6B9C /* Debug */,
+				92CB5D4D2FAB62FF006E6B9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
