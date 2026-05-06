@@ -27,9 +27,9 @@ final class CalculatorViewModelTests: XCTestCase {
     func test_initialState_shouldBeCorrect() {
         XCTAssertEqual(sut.numberOfPeople, 1)
         XCTAssertFalse(sut.billAmountIsValid)
-        XCTAssertEqual(sut.totalBillText, .defaultCurrencyValue)
-        XCTAssertEqual(sut.totalTipText, .defaultCurrencyValue)
-        XCTAssertEqual(sut.totalPersonText, .defaultCurrencyValue)
+        XCTAssertEqual(sut.totalBillText, "R$ 0,00")
+        XCTAssertEqual(sut.totalTipText, "R$ 0,00")
+        XCTAssertEqual(sut.totalPersonText, "R$ 0,00")
     }
     
     // MARK: - Bill Amount
@@ -39,9 +39,9 @@ final class CalculatorViewModelTests: XCTestCase {
         
         XCTAssertEqual(sut.numberOfPeople, 1)
         XCTAssertFalse(sut.billAmountIsValid)
-        XCTAssertEqual(sut.totalBillText, .defaultCurrencyValue)
-        XCTAssertEqual(sut.totalTipText, .defaultCurrencyValue)
-        XCTAssertEqual(sut.totalPersonText, .defaultCurrencyValue)
+        XCTAssertEqual(sut.totalBillText, "R$ 0,00")
+        XCTAssertEqual(sut.totalTipText, "R$ 0,00")
+        XCTAssertEqual(sut.totalPersonText, "R$ 0,00")
     }
     
     func test_setBillAmount_valid_shouldValidateBill() {
@@ -120,8 +120,8 @@ final class CalculatorViewModelTests: XCTestCase {
         XCTAssertTrue(sut.billAmountIsValid)
         XCTAssertEqual(sut.numberOfPeople, 1)
         
-        XCTAssertTrue(sut.totalBillText.contains(.defaultCurrencyValue))
-        XCTAssertTrue(sut.totalTipText.contains(.defaultCurrencyValue))
-        XCTAssertTrue(sut.totalPersonText.contains(.defaultCurrencyValue))
+        XCTAssertTrue(sut.totalBillText.contains("R$ 0,00"))
+        XCTAssertTrue(sut.totalTipText.contains("R$ 0,00"))
+        XCTAssertTrue(sut.totalPersonText.contains("R$ 0,00"))
     }
 }
