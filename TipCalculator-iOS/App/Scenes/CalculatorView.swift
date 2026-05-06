@@ -64,6 +64,7 @@ final class CalculatorView: UIView {
         setupConstraints()
         setupConfigurations()
         setButtonsEnabled(false)
+        setupIdentifiers()
     }
     
     private func setupHierarchy() {
@@ -180,6 +181,22 @@ final class CalculatorView: UIView {
             [tip10PercentButton, tip15PercentButton, tip20PercentButton, customTipButton, decreasePeopleButton, increasePeopleButton].forEach { $0.alpha = 1 }
             [tip10PercentButton, tip15PercentButton, tip20PercentButton, customTipButton, decreasePeopleButton, increasePeopleButton].forEach { $0.backgroundColor = .systemIndigo }
         }
+    }
+    
+    private func setupIdentifiers() {
+        totalPerPersonValueLabel.accessibilityIdentifier = "totalPerPersonValueLabel"
+        totalBillValueLabel.accessibilityIdentifier = "totalBillValueLabel"
+        tipAmountValueLabel.accessibilityIdentifier = "tipAmountValueLabel"
+        billAmountTextField.accessibilityIdentifier = "billAmountTextField"
+        
+        tip10PercentButton.accessibilityIdentifier = "tip10PercentButton"
+        tip15PercentButton.accessibilityIdentifier = "tip15PercentButton"
+        tip20PercentButton.accessibilityIdentifier = "tip20PercentButton"
+        customTipButton.accessibilityIdentifier = "customTipButton"
+        
+        decreasePeopleButton.accessibilityIdentifier = "decreasePeopleButton"
+        peopleCountValueLabel.accessibilityIdentifier = "peopleCountValueLabel"
+        increasePeopleButton.accessibilityIdentifier = "increasePeopleButton"
     }
 }
 
