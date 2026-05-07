@@ -37,7 +37,7 @@ class CalculatorViewController: UIViewController {
     private func setupNavigationBar() {
         navigationItem.title = "title".localized
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "eraser.fill"), style: .plain, target: self, action: #selector(tappedClearUI))
-        navigationItem.rightBarButtonItem?.accessibilityIdentifier = "clearButton"
+        navigationItem.rightBarButtonItem?.accessibilityIdentifier = DSIdentifiers.clearButton
     }
     
     private func setupDelegates() {
@@ -119,7 +119,7 @@ extension CalculatorViewController: CalculatorViewDelegate {
         alert.addTextField { (textField) in
             textField.placeholder = "placeholder".localized
             textField.keyboardType = .decimalPad
-            textField.accessibilityIdentifier = "customTipTextField"
+            textField.accessibilityIdentifier = DSIdentifiers.customTipTextField
         }
         
         let confirmationAction = UIAlertAction(title: "Ok", style: .default) { [weak self] _ in
@@ -132,7 +132,7 @@ extension CalculatorViewController: CalculatorViewDelegate {
             setupUI()
         }
         
-        alert.view.accessibilityIdentifier = "customTipAlert"
+        alert.view.accessibilityIdentifier = DSIdentifiers.customTipAlert
         alert.addAction(confirmationAction)
         alert.addAction(UIAlertAction(title: "cancel_button_title".localized, style: .cancel, handler: nil))
         
