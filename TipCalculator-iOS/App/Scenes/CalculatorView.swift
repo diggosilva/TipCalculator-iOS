@@ -184,19 +184,19 @@ final class CalculatorView: UIView {
     }
     
     private func setupIdentifiers() {
-        totalPerPersonValueLabel.accessibilityIdentifier = "totalPerPersonValueLabel"
-        totalBillValueLabel.accessibilityIdentifier = "totalBillValueLabel"
-        tipAmountValueLabel.accessibilityIdentifier = "tipAmountValueLabel"
-        billAmountTextField.accessibilityIdentifier = "billAmountTextField"
+        totalPerPersonValueLabel.accessibilityIdentifier = DSIdentifiers.totalPerPersonValueLabel
+        totalBillValueLabel.accessibilityIdentifier = DSIdentifiers.totalBillValueLabel
+        tipAmountValueLabel.accessibilityIdentifier = DSIdentifiers.tipAmountValueLabel
+        billAmountTextField.accessibilityIdentifier = DSIdentifiers.billAmountTextField
         
-        tip10PercentButton.accessibilityIdentifier = "tip10PercentButton"
-        tip15PercentButton.accessibilityIdentifier = "tip15PercentButton"
-        tip20PercentButton.accessibilityIdentifier = "tip20PercentButton"
-        customTipButton.accessibilityIdentifier = "customTipButton"
+        tip10PercentButton.accessibilityIdentifier = DSIdentifiers.tip10PercentButton
+        tip15PercentButton.accessibilityIdentifier = DSIdentifiers.tip15PercentButton
+        tip20PercentButton.accessibilityIdentifier = DSIdentifiers.tip20PercentButton
+        customTipButton.accessibilityIdentifier = DSIdentifiers.customTipButton
         
-        decreasePeopleButton.accessibilityIdentifier = "decreasePeopleButton"
-        peopleCountValueLabel.accessibilityIdentifier = "peopleCountValueLabel"
-        increasePeopleButton.accessibilityIdentifier = "increasePeopleButton"
+        decreasePeopleButton.accessibilityIdentifier = DSIdentifiers.decreasePeopleButton
+        peopleCountValueLabel.accessibilityIdentifier = DSIdentifiers.peopleCountValueLabel
+        increasePeopleButton.accessibilityIdentifier = DSIdentifiers.increasePeopleButton
     }
 }
 
